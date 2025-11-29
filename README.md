@@ -13,7 +13,7 @@ This fork uses `vcpkg` to use libzmq (using `setup.vsh`). So this works on Win/M
 $ git clone https://github.com/funatsufumiya/vmq/ ~/.vmodules/vmq
 $ v run ~/.vmodules/vmq/setup.vsh
 
-# and please follow instruction shown at last (copy dll etc)
+# and please follow instruction shown at last (copy dll and lib etc)
 ```
 
 ## Test
