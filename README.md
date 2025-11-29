@@ -1,10 +1,25 @@
 # vmq
 
-This fork support `zmq_proxy`, adjusts the directory structure, and submit it to [vpm](https://vpm.vlang.io/)
-
-If this is not allowed, please contact me to delete this fork and [package](https://vpm.vlang.io/packages/venyowong.vmq)
-
 V Wrapper For ZMQ
+
+This fork uses `vcpkg` to use libzmq (using `setup.vsh`).
+
+## Install
+
+```bash
+$ git clone https://github.com/funatsufumiya/vmq/ ~/.vmodules/vmq
+$ v run ~/.vmodules/vmq/setup.vsh
+
+# and please follow instruction shown at last (copy dll/dylib etc)
+```
+
+## Test
+
+```bash
+$ v test ~/.vmodules/vmq/
+```
+
+## Usage
 
 `vmq` attempts to maintain a similar API to libzmq. Typical usage is:
 

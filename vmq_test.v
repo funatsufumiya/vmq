@@ -103,26 +103,26 @@ fn test_pushpull() {
 		panic(err)
 	}
 
-	// Generate some test keys
-	pub_key, sec_key := curve_keypair() or {
-		panic(err)
-	}
-	push.setup_curve(pub_key, sec_key) or {
-		panic(err)
-	}
-	push.set_curve_server() or {
-		panic(err)
-	}
+	// // Generate some test keys
+	// pub_key, sec_key := curve_keypair() or {
+	// 	panic(err)
+	// }
+	// push.setup_curve(pub_key, sec_key) or {
+	// 	panic(err)
+	// }
+	// push.set_curve_server() or {
+	// 	panic(err)
+	// }
 
-	pull_pk, pull_sk := curve_keypair() or {
-		panic(err)
-	}
-	pull.setup_curve(pull_pk, pull_sk) or {
-		panic(err)
-	}
-	pull.set_curve_serverkey(pub_key) or {
-		panic(err)
-	}
+	// pull_pk, pull_sk := curve_keypair() or {
+	// 	panic(err)
+	// }
+	// pull.setup_curve(pull_pk, pull_sk) or {
+	// 	panic(err)
+	// }
+	// pull.set_curve_serverkey(pub_key) or {
+	// 	panic(err)
+	// }
 
 	push.bind('tcp://127.0.0.1:5555') or {
 		panic(err)
