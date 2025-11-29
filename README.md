@@ -4,6 +4,9 @@ V Wrapper For ZMQ
 
 This fork uses `vcpkg` to use libzmq (using `setup.vsh`).
 
+> [!NOTE]
+> On linux, please use `v -cc clang` when run program or test.
+
 ## Install
 
 ```bash

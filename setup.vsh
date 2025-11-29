@@ -12,6 +12,12 @@ is_mac := $if macos {
 	false
 }
 
+is_linux := $if linux {
+	true
+} $else {
+	false
+}
+
 sp := if is_windows { "\\" } else { "/" }
 
 dll_ext := if is_windows {
@@ -32,6 +38,10 @@ triplet := $if windows && amd64 {
 	"x64-osx"
 } $else $if macos && arm64 {
 	"arm64-osx"
+} $else $if linux && x64 {
+	"x64-linux"
+} $else $if linux && arm64 {
+	"arm64-linux"
 } $else {
 	$compile_error("Sorry, current os and arch is not supported.")
 	""
@@ -140,4 +150,9 @@ if os.exists(bin_path) {
 	if is_mac {
 		println(" or set DYLD_LIBRARY_PATH to it")
 	}
+}
+
+if is_linux {
+	println("")
+	println("[NOTE] On linux, please use `v -cc clang` when run program or test.")
 }

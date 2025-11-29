@@ -27,6 +27,18 @@ import time
 		#flag -L @VMODROOT/vcpkg/packages/zeromq_arm64-osx/lib
 		#flag -lzmq
 		#flag -lstdc++
+	} $else $if linux && x64 {
+		#flag -I @VMODROOT/vcpkg/packages/zeromq_x64-linux/include
+		#flag -L @VMODROOT/vcpkg/packages/zeromq_x64-linux/lib
+		#flag -lzmq
+		#flag -lstdc++
+		#flag -lrt
+	} $else $if linux && arm64 {
+		#flag -I @VMODROOT/vcpkg/packages/zeromq_arm64-linux/include
+		#flag -L @VMODROOT/vcpkg/packages/zeromq_arm64-linux/lib
+		#flag -lzmq
+		#flag -lstdc++
+		#flag -lrt
 	} $else {
 		$compile_error("Sorry, current os and arch is not supported.")
 	}
