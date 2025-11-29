@@ -145,7 +145,7 @@ bin_path := "${root_dir}${sp}vcpkg${sp}packages${sp}${zmq_package_name}_${triple
 
 if os.exists(bin_path) {
 	println("")
-	println("[NOTE] Please copy ${sp}*.${dll_ext} into your execution path before v run.")
+	println("[NOTE] Please copy ${bin_path}${sp}*.${dll_ext} into your execution path before v run.")
 
 	if is_mac {
 		println(" or set DYLD_LIBRARY_PATH to it")
