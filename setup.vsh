@@ -142,10 +142,14 @@ os.chdir(vcpkg_dir)!
 }
 
 bin_path := "${root_dir}${sp}vcpkg${sp}packages${sp}${zmq_package_name}_${triplet}${sp}bin"
+lib_path := "${root_dir}${sp}vcpkg${sp}packages${sp}${zmq_package_name}_${triplet}${sp}lib"
 
-if os.exists(bin_path) {
+if is_windows {
 	println("")
-	println("[NOTE] Please copy ${bin_path}${sp}*.${dll_ext} into your execution path before v run.")
+	println("[NOTE] Please copy ${bin_path}${sp}*.dll and ${lib_path}${sp}*.lib into your execution path before v run (for linker).")
+} else if os.exists(bin_path) {
+	println("")
+	println("[NOTE] Please copy ${bin_path}${sp}*.${dll_ext} into your execution path before v run (for linker).")
 
 	if is_mac {
 		println(" or set DYLD_LIBRARY_PATH to it")
