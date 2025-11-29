@@ -2,9 +2,9 @@ module vmq
 
 import time
 
-$if $pkgconfig("libzmq") {
-	#pkgconfig libzmq
-} $else {
+// $if $pkgconfig("libzmq") {
+// 	#pkgconfig libzmq
+// } $else {
 	$if windows {
 		#flag -lWs2_32
 	}
@@ -13,8 +13,24 @@ $if $pkgconfig("libzmq") {
 		#flag -I @VMODROOT/vcpkg/packages/zeromq_x64-windows/include
 		#flag -L @VMODROOT/vcpkg/packages/zeromq_x64-windows/bin
 		#flag -l libzmq-mt-4_3_5
+	} $else $if windows && arm64 {
+		#flag -I @VMODROOT/vcpkg/packages/zeromq_arm64-windows/include
+		#flag -L @VMODROOT/vcpkg/packages/zeromq_arm64-windows/bin
+		#flag -l libzmq-mt-4_3_5
+	} $else $if macos && x64 {
+		#flag -I @VMODROOT/vcpkg/packages/zeromq_x64-osx/include
+		#flag -L @VMODROOT/vcpkg/packages/zeromq_x64-osx/lib
+		#flag -lzmq
+		#flag -lstdc++
+	} $else $if macos && arm64 {
+		#flag -I @VMODROOT/vcpkg/packages/zeromq_arm64-osx/include
+		#flag -L @VMODROOT/vcpkg/packages/zeromq_arm64-osx/lib
+		#flag -lzmq
+		#flag -lstdc++
+	} $else {
+		$compile_error("Sorry, current os and arch is not supported.")
 	}
-}
+// }
 
 #flag @VMODROOT/c/vmq.o
 #flag -I @VMODROOT/c

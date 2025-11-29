@@ -26,6 +26,12 @@ zmq_package_name := "zeromq"
 
 triplet := $if windows && amd64 {
 	"x64-windows"
+} $else $if windows && arm64 {
+	"arm64-windows"
+} $else $if macos && x64 {
+	"x64-osx"
+} $else $if macos && arm64 {
+	"arm64-osx"
 } $else {
 	$compile_error("Sorry, current os and arch is not supported.")
 	""
@@ -125,9 +131,13 @@ os.chdir(vcpkg_dir)!
 	println("vcpkg ${zmq_full_package_name} is installed")
 }
 
-println("")
-println("[NOTE] Please copy ${root_dir}${sp}vcpkg${sp}packages${sp}${zmq_package_name}_${triplet}${sp}bin${sp}*.${dll_ext} into your execution path before v run.")
+bin_path := "${root_dir}${sp}vcpkg${sp}packages${sp}${zmq_package_name}_${triplet}${sp}bin"
 
-if is_mac {
-	println(" or set DYLD_LIBRARY_PATH to it")
+if os.exists(bin_path) {
+	println("")
+	println("[NOTE] Please copy ${sp}*.${dll_ext} into your execution path before v run.")
+
+	if is_mac {
+		println(" or set DYLD_LIBRARY_PATH to it")
+	}
 }
