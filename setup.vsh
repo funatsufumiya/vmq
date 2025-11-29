@@ -116,7 +116,7 @@ os.chdir(vcpkg_dir)!
 	vcpkg_list := res.output.trim_space()
 	
 	if !vcpkg_list.contains(zmq_full_package_name) {
-		println("installing ${zmq_full_package_name} using vcpkg... (this may takes minutes, be patient)")
+		println("installing ${zmq_full_package_name} using vcpkg... (this may take minutes, be patient)")
 		mut res2 := os.execute('./vcpkg install ${zmq_full_package_name}')
 		if res2.exit_code != 0 {
 			println('Failed to execute ./vcpkg install czmq. Giving up.')
