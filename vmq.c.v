@@ -5,20 +5,14 @@ import time
 $if $pkgconfig("libzmq") {
 	#pkgconfig libzmq
 } $else {
-	#define ZMQ_STATIC 1
-
 	$if windows {
 		#flag -lWs2_32
 	}
 
 	$if windows && amd64 {
 		#flag -I @VMODROOT/vcpkg/packages/zeromq_x64-windows/include
-		// #flag -L @VMODROOT/vcpkg/installed/x64-windows/lib
 		#flag -L @VMODROOT/vcpkg/packages/zeromq_x64-windows/bin
-		// #flag @VMODROOT/vcpkg/installed/x64-windows/lib/czmq.lib
-		// #flag @VMODROOT/vcpkg/installed/x64-windows/lib/libzmq-mt-4_3_5.lib
 		#flag -l libzmq-mt-4_3_5
-		// #flag -l czmq
 	}
 }
 
