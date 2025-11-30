@@ -161,5 +161,5 @@ if is_windows {
 if is_linux {
 	println("")
 	println("[NOTE] On linux, please use `v -cc clang` when run program or test.")
-
 }
+
