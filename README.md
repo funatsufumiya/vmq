@@ -20,6 +20,9 @@ $ v run ~/.vmodules/vmq/setup.vsh
 
 ```bash
 $ v test ~/.vmodules/vmq/
+
+# on linux (as an workaround)
+$ v -cc clang test ~/.vmodules/vmq/
 ```
 
 ## Usage
