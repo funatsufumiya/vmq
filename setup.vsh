@@ -43,7 +43,7 @@ triplet := $if windows && amd64 {
 } $else $if linux && arm64 {
 	"arm64-linux"
 } $else {
-	$compile_error("Sorry, current os and arch is not supported.")
+	$compile_error("Sorry, current os and arch is not supported. If you need, please edit setup.vsh by yourself.")
 	""
 }
 
@@ -161,4 +161,5 @@ if is_windows {
 if is_linux {
 	println("")
 	println("[NOTE] On linux, please use `v -cc clang` when run program or test.")
+
 }
