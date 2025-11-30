@@ -2,7 +2,7 @@
 
 V Wrapper For ZMQ
 
-This fork uses `vcpkg` to use libzmq (using `setup.vsh`). So this works on Win/Mac/Linux (and maybe other platforms).
+This fork uses `vcpkg` to use libzmq (using `setup.vsh`). So this works on Win/Mac/Linux (and maybe other platforms which is supported by `vcpkg`).
 
 > [!NOTE]
 > On linux, please use `v -cc clang` when run program or test.
