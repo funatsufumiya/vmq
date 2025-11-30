@@ -40,7 +40,7 @@ import time
 		#flag -lstdc++
 		#flag -lrt
 	} $else {
-		$compile_error("Sorry, current os and arch is not supported.")
+		$compile_error("Sorry, current os and arch is not supported. If you need, please edit vmq.c.v by yourself.")
 	}
 // }
 
